@@ -1,4 +1,3 @@
-# basic
 //
 //  main.cpp
 //
@@ -11,7 +10,6 @@
 #include <fstream>
 #include "Command.cpp"
 #include <cstring>
-using namespace std;
 
 int main(int argc, const char * argv[])
 {
@@ -20,23 +18,19 @@ int main(int argc, const char * argv[])
   {
     std::vector <std::string> order;
     std::cout << "sep> ";
-    std::string * pointer;
     std::string input;
-    std::cin >> input;
-    pointer = std::strtok(input, " ");
-    while (pointer != NULL)
+    getline(std::cin, input);
+    char * pch;
+    pch = std::strtok(input," ")
+    for (int counter = 0; pch != NULL; counter++)
+    //while(pch != NULL)
     {
-      int i = 0;
-      order[i]= *pointer;
-      pointer = std::strtok(NULL, " ");
-      i++;
+      order[counter] = pch;
+      pch = strtok (NULL, " ");
     }
-
     if (order[0] == "quit")
     {
-      std::cout << "Bye!\n" << std::endl;
       running = false;
-      return 0;
     }
     else if (order[0] == "move")
     {
@@ -51,14 +45,11 @@ int main(int argc, const char * argv[])
     }
     else
     {
-     std::cout << "[ERR] Unknown command.\n" << std::endl;
+      std::cout << &order << std::endl;
     }
   }
-  
   return 0;
 }
-
-
 
 
 
